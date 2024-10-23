@@ -1,58 +1,97 @@
-# EzyMetrics Backend
+## API USAGE
 
-EzyMetrics is a powerful backend application designed to manage data integrations and reporting for marketing metrics. Built with Node.js, Express.js, and MongoDB, this project provides a robust API for handling leads, campaigns, and metrics.
-
-## Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
-- [API Endpoints](#api-endpoints)
-  - [Leads](#leads)
-  - [Campaigns](#campaigns)
-  - [Metrics](#metrics)
-- [ETL Process](#etl-process)
-- [Email Notifications](#email-notifications)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
-
-## Features
-
-- **CRUD Operations**: Create, read, update, and delete leads, campaigns, and metrics.
-- **Data Integration**: Fetch and aggregate data from various sources.
-- **Reporting**: Generate comprehensive reports on marketing performance.
-- **Email Alerts**: Notify users of critical metrics and performance issues.
-- **ETL Process**: Extract, transform, and load marketing data efficiently.
-
-## Technologies Used
+### Technologies Used
 
 - Node.js
 - Express.js
 - MongoDB
-- Mongoose
 - Nodemailer
-- dotenv
 - MailTrap SMTP
-
-## Getting Started
 
 ### Prerequisites
 
 Make sure you have the following installed on your machine:
 
 - Node.js (v14 or later)
-- MongoDB (local or hosted, e.g., MongoDB Atlas)
+- MongoDB (locally installed)
+- Postman (for API testing)
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/ezy-metrics-backend.git
-   cd ezy-metrics-backend
+   git clone https://github.com/shivam-0510/Backend-Ezymetrics.git
+
+2. Install Dependencies:
+
+   ```bash
+   npm install
+
+3. Create a .env file and add the following variables:
+
+   ```bash
+   PORT=8080
+   MONGO_URI=mongodb://localhost:27017/backend-ezymetrics
+
+4. Go to Mailtrap.io and create an account for a fake SMTP server. In .env file add two variables:
+
+   ```bash
+   EMAIL_USER=your_username
+   EMAIL_PASSWORD=your_password
+   ```
+
+   Copy the username and password from your account.
+
+
+4. Start the application:
+
+   ```bash
+   nodemon .\server.js
+
+### Usage
+
+1. For fetching fake CRM data. Go to Postman, select the GET option, and Send a request to this URL.
+
+   ```bash
+   http://localhost:8080/api/v1/lead/data
+
+2. For fetching fake marketing data. Go to Postman, select the GET option, and Send a request to this URL.
+
+   ```bash
+   http://localhost:8080/api/v1/campaign/data
+
+3. To fetch the and save it in the database. Go to Postman, select the GET option, and Send a request to this URL.
+
+   ```bash
+   http://localhost:8080/api/v1/data/fetch
+
+4. For the ETL process. Go to Postman, select the GET option, and Send a request to this URL.
+
+   ```bash
+   http://localhost:8080/api/v1/etl
+
+5. For generating a PDF report. Go to Postman, select the GET option, and Send a request to this URL.
+
+   ```bash
+   http://localhost:8080/api/v1/report/generate-pdf-report
+
+6. PDF report will be generated in the reports folder.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
