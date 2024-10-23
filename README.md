@@ -40,8 +40,19 @@ Make sure you have the following installed on your machine:
    EMAIL_USER=your_username
    EMAIL_PASSWORD=your_password
    ```
-
+   
    Copy the username and password from your account.
+
+   Also add the receiver email in the /services/etlService.js file under:
+
+   ```bash
+   const info = await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: "reciever-email",
+    subject,
+    text: message,
+   });
+   ```
 
 
 4. Start the application:
