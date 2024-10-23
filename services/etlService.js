@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 async function sendEmailAlert(subject, message) {
   const info = await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: "reciever-email",
+    to: "skg050210@gmail.com",
     subject,
     text: message,
   });
@@ -65,10 +65,8 @@ const etlProcess = async (req, res) => {
           ? ((campaign.spent / campaign.budget) * 100).toFixed(2)
           : 0;
       const conversionRate =
-        campaign.totalImpressions > 0
-          ? ((campaign.conversions / campaign.totalImpressions) * 100).toFixed(
-              2
-            )
+        campaign.clicks > 0
+          ? ((campaign.conversions / campaign.clicks) * 100).toFixed(2)
           : 0;
 
       return {
@@ -78,7 +76,7 @@ const etlProcess = async (req, res) => {
         conversionRate,
         totalSpent: campaign.spent,
         totalConversions: campaign.conversions,
-        totalImpressions: campaign.totalImpressions,
+        totalImpressions: campaign.clicks,
       };
     });
 
