@@ -1,0 +1,80 @@
+const campaignData = (req, res) => {
+  const dummyCampaigns = [
+    {
+      id: 1,
+      name: "Holiday Sales Campaign",
+      status: "Running",
+      budget: 5000,
+      spent: 3200,
+      clicks: 1200,
+      conversions: 150,
+      startDate: "2024-10-01",
+      endDate: "2024-12-31",
+      channel: "Google Ads",
+      targetAudience: "Age 25-35, USA, interested in electronics",
+      goals: "Increase sales for holiday season",
+    },
+    {
+      id: 2,
+      name: "Summer Discount Campaign",
+      status: "Completed",
+      budget: 3000,
+      spent: 3000,
+      clicks: 950,
+      conversions: 100,
+      startDate: "2024-06-01",
+      endDate: "2024-08-31",
+      channel: "Facebook Ads",
+      targetAudience: "Age 18-30, USA, interested in fashion",
+      goals: "Drive traffic to summer sales page",
+    },
+    {
+      id: 3,
+      name: "New Product Launch",
+      status: "Paused",
+      budget: 8000,
+      spent: 4500,
+      clicks: 1800,
+      conversions: 230,
+      startDate: "2024-09-15",
+      endDate: "2024-12-15",
+      channel: "Instagram Ads",
+      targetAudience: "Age 20-40, global, interested in tech gadgets",
+      goals: "Create buzz around new product release",
+    },
+    {
+      id: 4,
+      name: "Email Retargeting Campaign",
+      status: "Scheduled",
+      budget: 1000,
+      spent: 500,
+      clicks: 100,
+      conversions: 20,
+      startDate: "2024-11-01",
+      endDate: "2024-11-30",
+      channel: "Email",
+      targetAudience: "Previous customers, USA, all age groups",
+      goals: "Retarget previous customers for upselling",
+    },
+    {
+      id: 5,
+      name: "Black Friday Special Campaign",
+      status: "Scheduled",
+      budget: 10000,
+      spent: 4550,
+      clicks: 230,
+      conversions: 120,
+      startDate: "2024-11-20",
+      endDate: "2024-11-30",
+      channel: "LinkedIn Ads",
+      targetAudience:
+        "Professionals, Age 30-50, USA, interested in business services",
+      goals: "Generate leads for Black Friday deals on business services",
+    },
+  ];
+
+  console.log("Campaign Data Fetched");
+  res.status(201).json(dummyCampaigns);
+};
+
+module.exports = campaignData;
