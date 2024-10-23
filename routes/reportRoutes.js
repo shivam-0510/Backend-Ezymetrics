@@ -42,6 +42,7 @@ router.get("/generate-pdf-report", async (req, res) => {
     // Generate PDF report
     const pdfPath = generatePDFReport(reportData);
 
+    console.log(`PDF report generated successfully - ${pdfPath}`);
     // Send back the PDF file path as a response
     res.json({
       message: "PDF report generated successfully",
