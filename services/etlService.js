@@ -16,16 +16,14 @@ const transporter = nodemailer.createTransport({
 
 // Function to send email alerts
 async function sendEmailAlert(subject, message) {
-  // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: process.env.EMAIL_USER, // sender address
-    to: "skg050210@gmail.com", // list of receivers
+    from: process.env.EMAIL_USER,
+    to: "reciever-email",
     subject,
     text: message,
   });
 
   console.log("Message sent: %s", info.messageId);
-  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
 }
 
 // ETL process: Transform and load metrics

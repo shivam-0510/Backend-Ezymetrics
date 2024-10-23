@@ -9,7 +9,6 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-
 const server = express();
 
 // Connect to MongoDB
@@ -27,11 +26,11 @@ server.use(express.json());
 server.use("/api/v1/lead", leadRouter);
 server.use("/api/v1/campaign", campaignRouter);
 server.use("/api/v1/data", fetchRouter);
-server.use("/api/v1/report", reportRouter);
 server.use("/api/v1/etl", etlRouter);
+server.use("/api/v1/report", reportRouter);
 
 // Start the server
-const PORT = process.env.PORT || 5000; // Default port if not specified
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`SERVER STARTED ON PORT ${PORT}`);
 });

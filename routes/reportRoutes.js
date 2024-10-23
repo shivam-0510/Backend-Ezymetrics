@@ -10,7 +10,7 @@ router.get("/generate-pdf-report", async (req, res) => {
     // Fetch metrics data from the database
     const metrics = await Metric.find();
     // Calculate overall metrics based on fetched data
-    const totalLeads = metrics[0].leadMetrics.totalLeads; // Assuming each metric document represents a lead
+    const totalLeads = metrics[0].leadMetrics.totalLeads; 
     const convertedLeads = metrics[0].leadMetrics.convertedLeads;
     const conversionRate = metrics[0].leadMetrics.conversionRate;
     const avgResponseTime = metrics[0].leadMetrics.avgResponseTime;
@@ -19,17 +19,17 @@ router.get("/generate-pdf-report", async (req, res) => {
     const leadMetrics = {
       totalLeads,
       convertedLeads,
-      conversionRate: `${conversionRate}%`, // Formatting conversion rate as percentage
-      avgResponseTime: `${avgResponseTime} hours`, // Formatting average response time
+      conversionRate: `${conversionRate}%`, 
+      avgResponseTime: `${avgResponseTime} hours`, 
     };
 
     // Prepare the campaign metrics
     const campaignMetrics = metrics[0].campaignMetrics.map((metric) => {
       return {
-        campaignName: metric.campaignName, // Default name if missing
-        conversionRate: `${metric.conversionRate}%`, // Formatting conversion rate as percentage
-        budgetUtilization: `${metric.budgetUtilization}%`, // Formatting budget utilization as percentage
-        costPerConversion: `$${metric.costPerConversion}`, // Formatting cost per conversion
+        campaignName: metric.campaignName, 
+        conversionRate: `${metric.conversionRate}%`, 
+        budgetUtilization: `${metric.budgetUtilization}%`, 
+        costPerConversion: `$${metric.costPerConversion}`, 
       };
     });
 
